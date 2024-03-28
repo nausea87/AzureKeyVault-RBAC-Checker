@@ -1,6 +1,6 @@
 # Azure Key Vault RBAC Access Checker
 
-This console application in checks whether you have access to secrets in Azure Key Vault based on Role-Based Access Control (RBAC) permissions.
+This console application checks whether you have access to secrets in Azure Key Vault based on Role-Based Access Control (RBAC) permissions. Just a small app to quickly see if everything works as intended.
 
 ## Prerequisites
 
