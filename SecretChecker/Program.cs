@@ -4,26 +4,30 @@ using Azure.Security.KeyVault.Secrets;
 // Specify your Azure Key Vault URL
 string keyVaultUrl = "https://rbacumbracowebnausea87.vault.azure.net/";
 
-// Create a new SecretClient using Azure Identity
-var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential());
-
-// Specify the name of the secret you want to retrieve
-string clientId = "ClientId" ?? string.Empty;
-string clientSecretId = "ClientSecretId" ?? string.Empty;
-string tenantId = "TenantId" ?? string.Empty;
+// Specify the names of the secrets you want to retrieve
+string[] secretNames = ["ClientId", "ClientSecretId", "TenantId"];
 
 try
 {
-    // Retrieve the secret from the Key Vault
-    var clientIdVal = client.GetSecret(clientId).Value;
-    var clientSecretIdVal = client.GetSecret(clientSecretId).Value;
-    var tenantIdVal = client.GetSecret(tenantId).Value;
+    // Create a new SecretClient using Azure Identity
+    var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential());
 
-    Console.WriteLine($"Values are: {clientIdVal.Value}");
-    Console.WriteLine($"Values are: {clientSecretIdVal.Value}");
-    Console.WriteLine($"Values are: {tenantIdVal.Value}");
+    foreach (string secretName in secretNames)
+    {
+        try
+        {
+            // Retrieve the secret from the Key Vault
+            KeyVaultSecret secret = await client.GetSecretAsync(secretName);
+
+            Console.WriteLine($"Value for {secretName} is: {secret.Value}\n");
+        }
+        catch (Azure.RequestFailedException ex)
+        {
+            Console.WriteLine($"Error accessing secret {secretName}: {ex.Message}");
+            continue;
+        }
+    }
 }
-
 catch (Exception ex)
 {
     Console.WriteLine($"Error accessing secret: {ex.Message}");
