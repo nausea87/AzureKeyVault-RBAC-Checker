@@ -7,7 +7,7 @@ This console application checks whether you have access to secrets in Azure Key 
 Before running this application, ensure you have the following:
 
 - .NET Core SDK installed
-- Azure subscription
+- Azure subscription (if testing your own AKV)
 - Access to an Azure Key Vault
 - Appropriate RBAC permissions to access the Azure Key Vault
 
@@ -16,6 +16,8 @@ Before running this application, ensure you have the following:
 1. Clone this repository to your local machine.
 2. Open `Program.cs` and replace the placeholders with your Azure Key Vault URL and the user's object ID whose access you want to check.
 4. Run the application.
+5. ???
+6. Profit!
 
 ## How it works
 
