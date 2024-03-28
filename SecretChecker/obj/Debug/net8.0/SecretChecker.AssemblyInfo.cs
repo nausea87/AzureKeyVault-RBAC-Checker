@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SecretChecker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+714464a3aee061e8ec1c791694f9467015d98402")]
 [assembly: System.Reflection.AssemblyProductAttribute("SecretChecker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SecretChecker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
